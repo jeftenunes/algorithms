@@ -15,3 +15,20 @@ cheaper = (arr) => {
 
     return cheaperAux;
 }
+
+function order(arr) {
+    let ordered = [], length = arr.length;
+
+    while(ordered.length < length) {
+        let c = cheaper(arr);
+        let idx = arr.indexOf(c);
+        ordered.push(c);
+        arr.splice(idx, 1);
+    }
+
+    return ordered;
+}
+
+console.log(cheaper(cars));
+
+console.log(order(cars));
